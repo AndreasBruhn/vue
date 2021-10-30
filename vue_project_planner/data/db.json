@@ -1,0 +1,28 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "Create new homeapage AGAIN!! asdsadsad",
+      "details": "Lorem ipsumaASdfasdasd",
+      "complete": true
+    },
+    {
+      "id": 2,
+      "title": "Make marketing email",
+      "details": "Lorem ipsum",
+      "complete": true
+    },
+    {
+      "title": "Make a new website template ",
+      "details": "lorem",
+      "complete": false,
+      "id": 3
+    },
+    {
+      "title": "Make a juice ",
+      "details": "I want an apple juice",
+      "complete": false,
+      "id": 4
+    }
+  ]
+}

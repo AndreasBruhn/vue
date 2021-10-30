@@ -1,0 +1,63 @@
+View vue_project_planner diagram to se the structure build of this project
+
+TODO: Step 1: Create a data folder with db.json file in it 
+TODO: Step 2: Install json-server and json-server --watch date/db.json to create a local development server
+TODO: Step 3: Setup mounted() to fetch data fra db.json -> Then return the data into our empty data component "projects"
+TODO: Step 4: Make a <div> with v-if statement checking if projects.length is either true or false. If false the div has no data inside and wont show
+TODO: Step 5: To cycle through the projects we use a v-for and say <div v-for="project in projects" :key="project.id"></div> --> key property must be unique
+TODO: Step 6: Use the SingleProduct component <SingleProject /> in Home.vue --> first import it and then register it as a component 
+TODO: Step 7: To pass the SingleProduct component for each cycle in the projects array we need to define a "props" so that there will be passed a different project into the SingleProduct component
+TODO: Step 8: Add some styling to the .project class 
+TODO: Step 9: As default the projects details should be hidden. But by clicking the <h3> element we should be able to toggle the details so it will show
+TODO: Step 10: Import material icons for the this project
+TODO: Step 11: Make a delete request for the delete icon 
+TODO: Step 12: Store the endpoint in "uri" under the data function so we can reuse the it
+    FIXME: uri: " http://localhost:3000/projects" + this.project.id,
+TODO: Step 13: Define the delete request which is send to the json server function down methods
+    FIXME: deleteProject() {
+      fetch(this.uri, { method: "DELETE" });
+TODO: Step 14: Make a delete request to the json server --> deletes the data from db.json file, NOT the frontend though
+TODO: Step 15: Make a custom event in a .then using the $emit event to emit the data so the data is deleted locally --> name the event "delete" and send along the data which is the id of the specific project
+TODO: Step 16: Make a methods function that keeps the project in, as long as they dont match the id, which is put in to the function. Do the id's match the delete and make a copy with filter and put that new array inside the projects array 
+    FIXME: Keeping the local data in sync when a delete request is made
+TODO: Step 17: Make a "patch" request to update a certain part of an element --> fetch(this.uri, { method: "PATCH " });
+TODO: Step 18: Set the header content type to json and use JSON.stringify to pass data back and forth as json
+    FIXME: Set the value of complete in a project opposite of the current value
+    FIXME: fetch(this.uri, {
+        method: "PATCH ",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ complete: !this.project.complete }),
+      });
+    },
+TODO: Step 19: Check if the click event fires the deleteHandler() --> works and sets the current value of the json objects to the opposite 
+TODO: Step 20: Update it locally to display it in the browser
+TODO: Step 21: To update projects array we use the find() to evaluate each project to true or false --> if true, store it in localeProject
+    FIXME:   completeHandler(id) {
+      let localProject = this.project.find((project) => {
+        return project.id === id;
+      });
+      localProject.complete = !localProject.complete;
+    },
+TODO: Step 22: Make a custom event in a .then using the $emit event to emit the data so the data is updated locally --> name the event "complete" and send along the data which is the id of the specific project
+TODO: Step 23: Add styling to indicate a completed project as soon as you tick of the "done" icon
+TODO: Step 24: Make a new form to let users add new projects
+    FIXME: track the input fields using the v-model method 
+TODO: Step: 25: Listen to the submit event using a click event where there is passed in a submit handler function
+    FIXME: remember to prevent the default of submit --> Which is reloading the page --> use .prevent method
+TODO: Step 26: create the submitHandler() with a console.long
+TODO: Step 27: create a route and path for the AddProject and import in the index.js to make it a valid route
+    FIXME: Check to see if it works in the url bar --> http://192.168.0.39:8080/add --> works
+TODO: Step 28: create a object template which creates new projects when they are added
+    FIXME: json-server handles the id property
+TODO: Step 29: Make a 'POST' request passing in json data 
+TODO: Step 30: Check if the 'POST' request works by passing in data and afterwards check the db.json file --> Works 
+TODO: Step 31: Make a redirect to the homepage when a new project is added
+    FIXME: then(() => {
+        this.$router.push("/").catch((err) => console.log(err.message));
+TODO: Step 32: Make a new project --> check if the redirect works and the added projects is shown in the browser --> works
+TODO: Step 33: Make a route for the EditProject and use a route parameter so we can get that specific object we a requesting
+TODO: Step 34: Make the edit icon into a link, that redirects yhou to the edit project page --> :to, define where we are going and make sure we can pass in a parameter
+    FIXME: <router-link :to="{ name: 'EditProject', params: { id: project.id } }">
+TODO: Step: 35 --->
